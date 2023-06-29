@@ -201,7 +201,7 @@ static int gettextprop(Window w, Atom atom, char *text, unsigned int size);
 static void grabbuttons(Client *c, int focused);
 static void grabkeys(void);
 static void incnmaster(const Arg *arg);
-static void resetnmaster(void);
+static void resetnmaster(const Arg *arg);
 static void keypress(XEvent *e);
 static void killclient(const Arg *arg);
 static void manage(Window w, XWindowAttributes *wa);
@@ -1134,7 +1134,7 @@ incnmaster(const Arg *arg)
 }
 
 void
-resetnmaster(void)
+resetnmaster(const Arg *arg)
 {
     selmon->nmaster = 1;
 	arrange(selmon);
@@ -1798,7 +1798,7 @@ setup(void)
 	if (!drw_fontset_create(drw, fonts, LENGTH(fonts)))
 		die("no fonts could be loaded.");
 	lrpad = drw->fonts->h;
-	bh = drw->fonts->h + 2;
+	bh = drw->fonts->h + 1;
 	updategeom();
 	/* init atoms */
 	utf8string = XInternAtom(dpy, "UTF8_STRING", False);

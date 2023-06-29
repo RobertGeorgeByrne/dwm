@@ -9,7 +9,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
+static const char *fonts[]          = { "monospace:size=12" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -38,8 +38,10 @@ static Sp scratchpads[] = {
 
 static const char *const autostart[] = {
 	"st", NULL,
-    "nm-applet", NULL,
+    //"nm-applet", NULL,
     "dwmblocks", NULL,
+    "setxkbmap", "gb", NULL,
+    "picom", NULL,
 	NULL /* terminate */
 };
 
@@ -52,7 +54,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",	  NULL,			NULL,		0,				1,			 -1 },
-	{ "Firefox",  NULL,			NULL,		1 << 8,			0,			 -1 },
+	{ "Firefox",  NULL,			NULL,		1 << 2,			0,			 -1 },
 	{ NULL,		  "spterm",		NULL,		SPTAG(0),		1,			 -1 },
 	{ NULL,		  "spfm",		NULL,		SPTAG(1),		1,			 -1 },
 	{ NULL,		  "keepassxc",	NULL,		SPTAG(2),		0,			 -1 },
